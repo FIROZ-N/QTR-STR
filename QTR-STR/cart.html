@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart | Qatar Hypermarket</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Same Header as index.html -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container header-top-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-shopping-basket logo-icon"></i>
+                    <div class="logo-text">
+                        <span>Qatar Hypermarket</span>
+                        <span>Premium Shopping Experience</span>
+                    </div>
+                </a>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search for products, brands, categories...">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                
+                <div class="header-actions">
+                    <a href="index.html" class="header-action">
+                        <i class="fas fa-home action-icon"></i>
+                        <span class="action-text">Home</span>
+                    </a>
+                    
+                    <a href="categories.html" class="header-action">
+                        <i class="fas fa-th-large action-icon"></i>
+                        <span class="action-text">Categories</span>
+                    </a>
+                    
+                    <a href="deals.html" class="header-action">
+                        <i class="fas fa-tags action-icon"></i>
+                        <span class="action-text">Deals</span>
+                    </a>
+                    
+                    <a href="cart.html" class="header-action">
+                        <i class="fas fa-shopping-cart action-icon"></i>
+                        <span class="action-text">Cart</span>
+                        <span class="cart-count">3</span>
+                    </a>
+                    
+                    <a href="profile.html" class="header-action">
+                        <div class="user-avatar">JS</div>
+                        <span class="action-text">John</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">
+                            <i class="fas fa-home"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="groceries.html" class="nav-link">
+                            <i class="fas fa-carrot"></i>
+                            Groceries
+                        </a>
+                        <div class="dropdown">
+                            <a href="fruits.html" class="dropdown-item">Fruits & Vegetables</a>
+                            <a href="dairy.html" class="dropdown-item">Dairy & Eggs</a>
+                            <a href="meat.html" class="dropdown-item">Meat & Poultry</a>
+                            <a href="bakery.html" class="dropdown-item">Bakery</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="electronics.html" class="nav-link">
+                            <i class="fas fa-laptop"></i>
+                            Electronics
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="home-garden.html" class="nav-link">
+                            <i class="fas fa-couch"></i>
+                            Home & Garden
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="fashion.html" class="nav-link">
+                            <i class="fas fa-tshirt"></i>
+                            Fashion
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pharmacy.html" class="nav-link">
+                            <i class="fas fa-pills"></i>
+                            Pharmacy
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="baby.html" class="nav-link">
+                            <i class="fas fa-baby"></i>
+                            Baby
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sports.html" class="nav-link">
+                            <i class="fas fa-futbol"></i>
+                            Sports
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Shopping Cart</h1>
+            <p class="page-subtitle">Review your items and proceed to checkout</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Shopping Cart</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Content -->
+    <section class="section">
+        <div class="container">
+            <div class="cart-container">
+                <!-- Cart Items -->
+                <div class="cart-items">
+                    <div class="cart-item">
+                        <div class="cart-item-img">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <div class="cart-item-details">
+                            <h3 class="cart-item-title">Fresh Red Apples (1kg)</h3>
+                            <div class="cart-item-price">QR 25.99</div>
+                            <div class="cart-item-actions">
+                                <div class="quantity-control">
+                                    <button class="quantity-btn minus">-</button>
+                                    <span class="quantity">2</span>
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                                <button class="remove-item">
+                                    <i class="fas fa-trash"></i> Remove
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cart-item">
+                        <div class="cart-item-img">
+                            <i class="fas fa-wine-bottle"></i>
+                        </div>
+                        <div class="cart-item-details">
+                            <h3 class="cart-item-title">Extra Virgin Olive Oil (1L)</h3>
+                            <div class="cart-item-price">QR 49.99</div>
+                            <div class="cart-item-actions">
+                                <div class="quantity-control">
+                                    <button class="quantity-btn minus">-</button>
+                                    <span class="quantity">1</span>
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                                <button class="remove-item">
+                                    <i class="fas fa-trash"></i> Remove
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cart-item">
+                        <div class="cart-item-img">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <div class="cart-item-details">
+                            <h3 class="cart-item-title">Men's Cotton T-Shirt (Medium)</h3>
+                            <div class="cart-item-price">QR 79.99</div>
+                            <div class="cart-item-actions">
+                                <div class="quantity-control">
+                                    <button class="quantity-btn minus">-</button>
+                                    <span class="quantity">1</span>
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                                <button class="remove-item">
+                                    <i class="fas fa-trash"></i> Remove
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Order Summary -->
+                <div class="cart-summary">
+                    <h3 class="summary-title">Order Summary</h3>
+                    
+                    <div class="summary-row">
+                        <span>Subtotal (3 items)</span>
+                        <span>QR 155.97</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>Delivery</span>
+                        <span>QR 15.00</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>Tax (5%)</span>
+                        <span>QR 7.80</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>Discount</span>
+                        <span>- QR 10.00</span>
+                    </div>
+                    
+                    <div class="summary-row summary-total">
+                        <span>Total</span>
+                        <span>QR 168.77</span>
+                    </div>
+                    
+                    <a href="checkout.html" class="btn-checkout">Proceed to Checkout</a>
+                    
+                    <div style="margin-top: 25px; font-size: 0.9rem; color: var(--secondary);">
+                        <p><i class="fas fa-shield-alt" style="color: var(--primary); margin-right: 8px;"></i> Secure checkout</p>
+                        <p><i class="fas fa-truck" style="color: var(--primary); margin-right: 8px;"></i> Free delivery on orders over QR 200</p>
+                        <p><i class="fas fa-undo" style="color: var(--primary); margin-right: 8px;"></i> Easy returns within 7 days</p>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <h4 style="margin-bottom: 15px; color: var(--primary);">Continue Shopping</h4>
+                        <a href="categories.html" class="btn-add-to-cart" style="background-color: white; color: var(--primary); border: 2px solid var(--primary);">
+                            <i class="fas fa-shopping-bag"></i>
+                            Browse Categories
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- You Might Also Like -->
+    <section class="section" style="background-color: #f9f9f9; padding: 40px 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">You Might Also Like</h2>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Similar products will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Same Footer as index.html -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Footer content same as before -->
+		<div class="footer-column">
+                    <h3>Qatar Hypermarket</h3>
+                    <p style="color: #ccc; margin-bottom: 20px;">Premium shopping experience with the finest products at competitive prices.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-page="home">Home</a></li>
+                        <li><a href="#" data-page="categories">Categories</a></li>
+                        <li><a href="#" data-page="deals">Today's Deals</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Return & Refund</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Al Corniche Street, Doha, Qatar</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>+974 4455 6677</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@qatarhypermarket.com</span>
+                    </div>
+                    
+                    <h3 style="margin-top: 25px;">Newsletter</h3>
+                    <p style="color: #ccc; margin-bottom: 15px;">Subscribe to get special offers & updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Your email address">
+                        <button type="submit" class="newsletter-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Cart functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const quantityBtns = document.querySelectorAll('.quantity-btn');
+            const removeItemBtns = document.querySelectorAll('.remove-item');
+            const cartCount = document.querySelector('.cart-count');
+            let cartItems = 3;
+            
+            // Update cart count
+            function updateCartCount(count) {
+                cartItems = count;
+                if (cartCount) {
+                    cartCount.textContent = cartItems;
+                    if (cartItems === 0) {
+                        cartCount.style.display = 'none';
+                    } else {
+                        cartCount.style.display = 'flex';
+                    }
+                }
+            }
+            
+            // Quantity buttons
+            quantityBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const control = this.closest('.quantity-control');
+                    const quantityElement = control.querySelector('.quantity');
+                    let quantity = parseInt(quantityElement.textContent);
+                    
+                    if (this.classList.contains('plus')) {
+                        quantity++;
+                    } else if (this.classList.contains('minus') && quantity > 1) {
+                        quantity--;
+                    }
+                    
+                    quantityElement.textContent = quantity;
+                    updateCartTotal();
+                });
+            });
+            
+            // Remove item buttons
+            removeItemBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const cartItem = this.closest('.cart-item');
+                    cartItem.style.animation = 'fadeOut 0.3s ease';
+                    
+                    setTimeout(() => {
+                        cartItem.remove();
+                        updateCartCount(cartItems - 1);
+                        updateCartTotal();
+                        
+                        // Show empty cart message if no items left
+                        const remainingItems = document.querySelectorAll('.cart-item').length;
+                        if (remainingItems === 0) {
+                            const cartItemsContainer = document.querySelector('.cart-items');
+                            cartItemsContainer.innerHTML = `
+                                <div style="text-align: center; padding: 60px 20px; background-color: white; border-radius: var(--border-radius); box-shadow: var(--card-shadow);">
+                                    <i class="fas fa-shopping-cart" style="font-size: 4rem; color: var(--gray); margin-bottom: 20px;"></i>
+                                    <h3 style="margin-bottom: 15px; color: var(--dark);">Your cart is empty</h3>
+                                    <p style="color: var(--secondary); margin-bottom: 30px;">Add some items to get started</p>
+                                    <a href="categories.html" class="btn-add-to-cart">Continue Shopping</a>
+                                </div>
+                            `;
+                        }
+                    }, 300);
+                });
+            });
+            
+            // Update cart total
+            function updateCartTotal() {
+                // In a real app, this would calculate from cart items
+                // For demo, we'll just update based on cart items count
+                const cartTotalElement = document.querySelector('.summary-total span:last-child');
+                if (cartTotalElement) {
+                    const remainingItems = document.querySelectorAll('.cart-item').length;
+                    const cartTotal = 50 * remainingItems + 15 + (50 * remainingItems * 0.05) - 10;
+                    cartTotalElement.textContent = `QR ${cartTotal.toFixed(2)}`;
+                }
+            }
+            
+            // Add CSS for fadeOut animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeOut {
+                    from { opacity: 1; transform: translateY(0); }
+                    to { opacity: 0; transform: translateY(20px); }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>

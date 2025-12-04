@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation | Qatar Hypermarket</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Same Header as index.html -->
+    <header class="header">
+        <!-- Copy header from index.html -->
+    </header>
+
+    <!-- Confirmation Content -->
+    <section class="section">
+        <div class="container">
+            <div class="confirmation-container fade-in">
+                <div class="confirmation-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                
+                <h1 class="confirmation-title">Order Confirmed!</h1>
+                
+                <p style="font-size: 1.2rem; color: var(--secondary); margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Thank you for your order. We've received it and will begin processing shortly.
+                </p>
+                
+                <div class="confirmation-number">
+                    Order #: ORD-789456
+                </div>
+                
+                <div style="background-color: #f9f9f9; padding: 30px; border-radius: var(--border-radius); margin: 30px 0; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                        <span style="font-weight: 600;">Order Total:</span>
+                        <span style="font-weight: 800; color: var(--primary); font-size: 1.2rem;">QR 168.77</span>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                        <span style="font-weight: 600;">Payment Method:</span>
+                        <span>Credit Card</span>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                        <span style="font-weight: 600;">Delivery Address:</span>
+                        <span style="text-align: right;">John Smith<br>123 Al Corniche Street<br>Doha, Qatar</span>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="font-weight: 600;">Estimated Delivery:</span>
+                        <span>Friday, 15 Dec 2023<br>12:00 PM - 3:00 PM</span>
+                    </div>
+                </div>
+                
+                <div style="margin: 30px 0;">
+                    <h3 style="color: var(--primary); margin-bottom: 20px;">What's Next?</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                        <div style="text-align: center; flex: 1; min-width: 200px;">
+                            <div style="width: 60px; height: 60px; background-color: rgba(138, 21, 56, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; color: var(--primary); font-size: 1.5rem;">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <h4 style="margin-bottom: 10px;">Order Processing</h4>
+                            <p style="color: var(--secondary); font-size: 0.9rem;">We'll prepare your items for delivery</p>
+                        </div>
+                        
+                        <div style="text-align: center; flex: 1; min-width: 200px;">
+                            <div style="width: 60px; height: 60px; background-color: rgba(138, 21, 56, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; color: var(--primary); font-size: 1.5rem;">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                            <h4 style="margin-bottom: 10px;">Delivery</h4>
+                            <p style="color: var(--secondary); font-size: 0.9rem;">Your order will be delivered as scheduled</p>
+                        </div>
+                        
+                        <div style="text-align: center; flex: 1; min-width: 200px;">
+                            <div style="width: 60px; height: 60px; background-color: rgba(138, 21, 56, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; color: var(--primary); font-size: 1.5rem;">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h4 style="margin-bottom: 10px;">Confirmation Email</h4>
+                            <p style="color: var(--secondary); font-size: 0.9rem;">Check your email for order details</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 40px;">
+                    <a href="profile.html?tab=orders" class="btn-add-to-cart" style="display: inline-block; width: auto; padding: 15px 30px;">
+                        <i class="fas fa-clipboard-list"></i>
+                        View Order Details
+                    </a>
+                    
+                    <a href="index.html" class="btn-add-to-cart" style="display: inline-block; width: auto; padding: 15px 30px; background-color: white; color: var(--primary); border: 2px solid var(--primary);">
+                        <i class="fas fa-shopping-bag"></i>
+                        Continue Shopping
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommended Products -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Recommended For You</h2>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Recommended products will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Same Footer as index.html -->
+    <footer class="footer">
+        <!-- Copy footer from index.html -->
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load recommended products
+            const productsGrid = document.querySelector('.products-grid');
+            const recommendedProducts = [
+                {
+                    name: "Fresh Orange Juice",
+                    category: "Beverages",
+                    price: 18.99,
+                    badge: "new",
+                    icon: "fa-glass-whiskey",
+                    description: "Freshly squeezed, no added sugar"
+                },
+                {
+                    name: "Arabic Coffee Pack",
+                    category: "Beverages",
+                    price: 24.99,
+                    icon: "fa-coffee",
+                    description: "Traditional Qatari blend"
+                },
+                {
+                    name: "Dates Box (500g)",
+                    category: "Groceries",
+                    price: 32.99,
+                    icon: "fa-apple-alt",
+                    description: "Premium quality dates"
+                },
+                {
+                    name: "Mixed Nuts",
+                    category: "Snacks",
+                    price: 45.99,
+                    icon: "fa-seedling",
+                    description: "Assorted nuts, 1kg pack"
+                },
+                {
+                    name: "Chocolate Assortment",
+                    category: "Snacks",
+                    price: 28.99,
+                    badge: "sale",
+                    icon: "fa-candy-cane",
+                    description: "Belgian chocolate collection"
+                }
+            ];
+            
+            // Generate product cards
+            recommendedProducts.forEach(product => {
+                const productCard = document.createElement('a');
+                productCard.className = 'product-card';
+                productCard.href = '#';
+                
+                let badgeHTML = '';
+                if (product.badge) {
+                    badgeHTML = `<div class="product-badge ${product.badge}">${product.badge === 'sale' ? 'Sale' : 'New'}</div>`;
+                }
+                
+                productCard.innerHTML = `
+                    ${badgeHTML}
+                    <div class="product-img">
+                        <i class="fas ${product.icon}"></i>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">${product.category}</div>
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-price">
+                            <span class="current-price">QR ${product.price.toFixed(2)}</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-add-to-cart">
+                                <i class="fas fa-cart-plus"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                productsGrid.appendChild(productCard);
+            });
+        });
+    </script>
+</body>
+</html>

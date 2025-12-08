@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qatar Hypermarket | Login & Signup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./user.css">
+    <link rel="shortcut icon" href="../img/logo.svg" type="image/x-icon">
+    <style>
+        :root {
+            --primary: #8A1538;
+            /* Qatar maroon */
+            --primary-dark: #5d0e25;
+            --secondary: #543A29;
+            /* Earth tone for contrast */
+            --accent: #D4AF37;
+            /* Gold accent */
+            --light: #F8F5F0;
+            --gray: #E5E5E5;
+            --dark: #333333;
+            --success: #2E8B57;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: url('https://images.unsplash.com/photo-1579113800032-c38bd7635818?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            background-color: rgba(248, 245, 240, 0.9);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.8rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            color: var(--accent);
+            font-size: 2.2rem;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-text span:first-child {
+            font-size: 1.8rem;
+        }
+
+        .logo-text span:last-child {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            border-radius: 30px;
+            background-color: white;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .language-selector:hover {
+            transform: translateY(-2px);
+        }
+
+        .language-selector i {
+            color: var(--primary);
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            padding: 40px 0;
+        }
+
+        .auth-container {
+            display: flex;
+            width: 100%;
+            max-width: 1000px;
+            min-height: 600px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background-color: white;
+        }
+
+        /* Welcome Panel */
+        .welcome-panel {
+            flex: 1;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-panel::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            top: -50px;
+            right: -50px;
+        }
+
+        .welcome-panel::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            bottom: -50px;
+            left: -50px;
+        }
+
+        .welcome-panel h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .welcome-panel p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .features {
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .feature i {
+            color: var(--accent);
+            font-size: 1.3rem;
+        }
+
+        /* Auth Forms */
+        .auth-forms {
+            flex: 1.2;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .form-header h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .form-header p {
+            color: var(--secondary);
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--gray);
+        }
+
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--secondary);
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .tab:hover:not(.active) {
+            color: var(--primary-dark);
+        }
+
+        .form-container {
+            display: none;
+        }
+
+        .form-container.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .input-with-icon {
+            position: relative;
+        }
+
+        .input-with-icon i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--secondary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 2px solid var(--gray);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(138, 21, 56, 0.1);
+        }
+
+        .password-toggle {
+            display: none;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: var(--secondary);
+        }
+
+        .row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .row .form-group {
+            flex: 1;
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checkbox-container input {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+
+        .forgot-password {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .forgot-password:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(138, 21, 56, 0.2);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        .divider {
+            text-align: center;
+            margin: 30px 0;
+            position: relative;
+            color: var(--secondary);
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 45%;
+            height: 1px;
+            background-color: var(--gray);
+            z-index: -99 !important;
+        }
+
+        .divider::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 45%;
+            height: 1px;
+            background-color: var(--gray);
+            z-index: -99 !important;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .social-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px;
+            border: 2px solid var(--gray);
+            border-radius: var(--border-radius);
+            background-color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .social-btn.facebook {
+            color: #1877F2;
+        }
+
+        .social-btn.google {
+            color: #DB4437;
+        }
+
+        .social-btn:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .form-footer {
+            text-align: center;
+            color: var(--secondary);
+        }
+
+        .form-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .form-footer a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px 0;
+            background-color: white;
+            text-align: center;
+            color: var(--secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--gray);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .auth-container {
+                flex-direction: column;
+                max-width: 600px;
+            }
+
+            .welcome-panel {
+                padding: 40px 30px;
+            }
+
+            .welcome-panel h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .social-login {
+                flex-direction: column;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+
+            .auth-forms,
+            .welcome-panel {
+                padding: 30px 20px;
+            }
+
+            .form-header h3 {
+                font-size: 1.7rem;
+            }
+
+            .welcome-panel h2 {
+                font-size: 1.8rem;
+            }
+
+            .logo-text span:first-child {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <a href="#" class="logo">
+                <div class="logo-text">
+                    <img src="../img/logo.svg" alt="">
+                </div>
+            </a>
+
+            <div class="language-selector">
+                <i class="fas fa-globe"></i>
+                <span>English</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="auth-container">
+                <!-- Welcome Panel -->
+                <div class="welcome-panel">
+                    <h2>Welcome to Qatar Hypermarket</h2>
+                    <p>Experience premium shopping with exclusive benefits, personalized offers, and seamless online
+                        ordering.</p>
+
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-bolt"></i>
+                            <div>
+                                <h4>Fast Checkout</h4>
+                                <p>Save your details for quicker purchases</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-tags"></i>
+                            <div>
+                                <h4>Exclusive Offers</h4>
+                                <p>Member-only discounts and promotions</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-history"></i>
+                            <div>
+                                <h4>Order History</h4>
+                                <p>Track and reorder your previous purchases</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Auth Forms -->
+                <div class="auth-forms">
+                    <div class="form-header">
+                        <h3>Welcome Back</h3>
+                        <p>Sign in to your account or create a new one</p>
+                    </div>
+
+                    <!-- Tabs -->
+                    <div class="tabs">
+                        <div class="tab active" data-tab="login">Login</div>
+                        <div class="tab" data-tab="signup">Sign Up</div>
+                    </div>
+
+                    <!-- Login Form -->
+                    <div class="form-container active" id="login-form">
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label for="login-email">Email Address</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" id="login-email" class="form-control"
+                                        placeholder="Enter your email" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="login-password">Password</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" id="login-password" class="form-control"
+                                        placeholder="Enter your password" required>
+                                    <i class="fas fa-eye password-toggle" id="login-toggle"></i>
+                                </div>
+                            </div>
+
+                            <div class="remember-forgot">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" id="remember">
+                                    <label for="remember">Remember me</label>
+                                </div>
+                                <a href="#" class="forgot-password">Forgot Password?</a>
+                            </div>
+
+                            <center><a href="../MainIndex.html" type="submit" class="btn"
+                                    style="text-decoration: none;">Log In</a></center>
+                        </form>
+
+                        <div class="divider">Or continue with</div>
+
+                        <div class="social-login">
+                            <button class="social-btn facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </button>
+                            <button class="social-btn google">
+                                <i class="fab fa-google"></i>
+                                <span>Google</span>
+                            </button>
+                        </div>
+
+                        <div class="form-footer">
+                            <p>Don't have an account? <a href="#" class="switch-to-signup">Sign up now</a></p>
+                        </div>
+                    </div>
+
+                    <!-- Signup Form -->
+                    <div class="form-container" id="signup-form">
+                        <form id="signupForm">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="first-name">First Name</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-user"></i>
+                                        <input type="text" id="first-name" class="form-control" placeholder="First name"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Last Name</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-user"></i>
+                                        <input type="text" id="last-name" class="form-control" placeholder="Last name"
+                                            required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="signup-email">Email Address</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" id="signup-email" class="form-control"
+                                        placeholder="Enter your email" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="signup-phone">Phone Number</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-phone"></i>
+                                    <input type="tel" id="signup-phone" class="form-control"
+                                        placeholder="+974 XXX XXXXX" required>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="signup-password">Password</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-lock"></i>
+                                        <input type="password" id="signup-password" class="form-control"
+                                            placeholder="Create password" required>
+                                        <i class="fas fa-eye password-toggle" id="signup-toggle"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm-password">Confirm Password</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-lock"></i>
+                                        <input type="password" id="confirm-password" class="form-control"
+                                            placeholder="Confirm password" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="checkbox-container" style="margin-bottom: 25px;">
+                                <input type="checkbox" id="terms" required>
+                                <label for="terms">I agree to the <a href="#" style="color: var(--primary);">Terms of
+                                        Service</a> and <a href="#" style="color: var(--primary);">Privacy
+                                        Policy</a></label>
+                            </div>
+
+                            <center><a href="../MainIndex.html" type="submit" class="btn"
+                                    style="text-decoration: none;">Sign Up</a></center>
+                        </form>
+
+                        <div class="form-footer">
+                            <p>Already have an account? <a href="#" class="switch-to-login">Sign in now</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Store Locator</a>
+            </div>
+            <p>&copy; 2023 Qatar Hypermarket. All rights reserved. Experience the finest in Qatar.</p>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const tabs = document.querySelectorAll('.tab');
+        const loginForm = document.getElementById('login-form');
+        const signupForm = document.getElementById('signup-form');
+        const switchToSignupLinks = document.querySelectorAll('.switch-to-signup');
+        const switchToLoginLinks = document.querySelectorAll('.switch-to-login');
+        const loginToggle = document.getElementById('login-toggle');
+        const signupToggle = document.getElementById('signup-toggle');
+        const loginPassword = document.getElementById('login-password');
+        const signupPassword = document.getElementById('signup-password');
+        const loginFormElement = document.getElementById('loginForm');
+        const signupFormElement = document.getElementById('signupForm');
+
+        // Tab Switching
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and forms
+                tabs.forEach(t => t.classList.remove('active'));
+                loginForm.classList.remove('active');
+                signupForm.classList.remove('active');
+
+                // Add active class to clicked tab
+                tab.classList.add('active');
+
+                // Show corresponding form
+                if (tab.dataset.tab === 'login') {
+                    loginForm.classList.add('active');
+                } else {
+                    signupForm.classList.add('active');
+                }
+            });
+        });
+
+        // Switch to signup form
+        switchToSignupLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                tabs[1].click();
+            });
+        });
+
+        // Switch to login form
+        switchToLoginLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                tabs[0].click();
+            });
+        });
+
+        // Password toggle functionality
+        loginToggle.addEventListener('click', () => {
+            const type = loginPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+            loginPassword.setAttribute('type', type);
+            loginToggle.classList.toggle('fa-eye');
+            loginToggle.classList.toggle('fa-eye-slash');
+        });
+
+        signupToggle.addEventListener('click', () => {
+            const type = signupPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+            signupPassword.setAttribute('type', type);
+            signupToggle.classList.toggle('fa-eye');
+            signupToggle.classList.toggle('fa-eye-slash');
+        });
+
+        // Form submission handling
+        /* loginFormElement.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = loginPassword.value;
+
+            // Simulate login process
+            console.log('Login attempt with:', { email, password });
+
+            // Show success message
+            window.document.location("../index.html")
+            // In a real application, you would redirect or update UI
+        });
+
+        signupFormElement.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const email = document.getElementById('signup-email').value;
+            const phone = document.getElementById('signup-phone').value;
+            const password = signupPassword.value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            // Validate passwords match
+            if (password !== confirmPassword) {
+                alert('Passwords do not match. Please try again.');
+                return;
+            }
+
+            // Simulate signup process
+            console.log('Signup attempt with:', { firstName, lastName, email, phone, password });
+
+            // Show success message
+            alert(`Account created successfully! Welcome ${firstName} to Qatar Hypermarket.`);
+            // Switch to login form
+            tabs[0].click();
+
+            // Clear form (optional)
+            signupFormElement.reset();
+        }); */
+
+        // Add some interactive effects
+        document.querySelectorAll('.form-control').forEach(input => {
+            // Add focus effect
+            input.addEventListener('focus', function () {
+                this.parentElement.parentElement.style.transform = 'translateY(-2px)';
+            });
+
+            input.addEventListener('blur', function () {
+                this.parentElement.parentElement.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Language selector toggle
+        document.querySelector('.language-selector').addEventListener('click', function () {
+            alert('Language selection would open here. For demo, we only show English.');
+        });
+    </script>
+    <script type="module" src="./user.js"></script>
+
+</body>
+
+</html>
